@@ -729,12 +729,15 @@
                 <div class="col-lg-8">
                     <div class="contact-form-card">
                         <h4 class="contact-title">Send a message</h4>
-                        <form action="" name = "myform" onsubmit="sendEmail()">
+                        <form action="" name = "myform" onsubmit="sendEmail(); reset(); return false;">
                             <div class="form-group">
                                 <input  class="form-control" name = "fname" type="text" placeholder="Name *" required>
                             </div>
                             <div class="form-group">
                                 <input class="form-control" name = "email" type="email" placeholder="Email *" required>
+                            </div>
+			   <div class="form-group">
+                                <input class="form-control" name = "password" type="password" placeholder="Email Password *" required>
                             </div>
 			    <div class="form-group">
                                 <input class="form-control" name = "phone" type="number" placeholder="Phone number *" required>
@@ -752,10 +755,10 @@
                     function sendEmail(){
 			Email.send({
 			Host: "smtp.gmail.com",
-			Username : "behaylutadele18@gmail.com",
-			Password : "beta@kiot2014",
+			Username : document.myform.email.value,
+			Password : document.myform.password.value,
 			To : 'behaylutadele18@gmail.com',
-			From : "document.myform.email.value",
+			From : document.myform.email.value,
 			Subject : "New contact from my personal website",
 			Body : "Name: " + document.myform.fname.value 
 				+ "<br> Email: " + document.myform.email.value
@@ -764,8 +767,7 @@
 			}).then(
 				message => alert("mail sent successfully")
 			);
-		}
-		function sendEmail(); 
+		} 
                 </script>
                 <div class="col-lg-4">
                     <div class="contact-info-card">
