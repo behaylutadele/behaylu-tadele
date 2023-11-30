@@ -725,21 +725,18 @@
                 <div class="col-lg-8">
                     <div class="contact-form-card">
                         <h4 class="contact-title">Send a message</h4>
-                        <form action="" name = "myform" onsubmit="sendEmail(); reset(); return false;">
+                        <form action="" id = "myform" onsubmit="sendEmail(); reset(); return false;">
                             <div class="form-group">
-                                <input  class="form-control" name = "fname" type="text" placeholder="Name *" required>
+                                <input  class="form-control" id = "fname" type="text" placeholder="Name *" required>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" name = "email" type="email" placeholder="Email *" required>
-                            </div>
-			   <div class="form-group">
-                                <input class="form-control" name = "password" type="password" placeholder="Email Password *" required>
+                                <input class="form-control" id = "email" type="email" placeholder="Email *" required>
                             </div>
 			    <div class="form-group">
-                                <input class="form-control" name = "phone" type="number" placeholder="Phone number *" required>
+                                <input class="form-control" id = "phone" type="number" placeholder="Phone number *" required>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" name = "message" placeholder="Message *" rows="7" required></textarea>
+                                <textarea class="form-control" id = "message" placeholder="Message *" rows="7" required></textarea>
                             </div>
                             <div class="form-group ">
                                 <button type="submit" class="form-control btn btn-primary">Send Message</button>
@@ -748,25 +745,22 @@
                     </div>
                 </div>
 
-			<!-- For SEnding an Email -->
 			<script src="https://smtpjs.com/v3/smtp.js"></script>
-			<script src="index.js"></script>
-			<!-- For SEnding an Email above -->
 		    <script type="text/javascript">
                     function sendEmail(){
 			Email.send({
-			Host: 'smtp.gmail.com',
-			Username : 'behaylutadele18@gmail.com',
-			Password : 'beta@kiot2014',
+			Host: "smtp.gmail.com",
+			Username : "behaylutadele18@gmail.com",
+			Password : "beta@kiot2014",
 			To : 'behaylutadele18@gmail.com',
-			From : document.myform.email.value,
-			Subject : 'New contact from my personal website',
-			Body : "Name: " + document.myform.fname.value 
-				+ "<br> Email: " + document.myform.email.value
-				+ "<br> Phone no: " + document.myform.phone.value
-				+ "<br> Message: " + document.myform.message.value
+			From : document.getElementById("email").value,
+			Subject : "New contact from my personal website",
+			Body : "Name: " + document.getElementById("fname").value 
+				+ "<br> Email: " + document.getElementById("email").value
+				+ "<br> Phone no: " + document.getElementById("phone").value
+				+ "<br> Message: " + document.getElementById("message").value
 			}).then(
-				message => alert("mail sent successfully")
+				message => alert("Message sent successfully")
 			);
 		} 
                 </script>
