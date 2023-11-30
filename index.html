@@ -746,10 +746,11 @@
                 </div>
 
 			<script src="https://smtpjs.com/v3/smtp.js"></script>
-		    <script type="text/javascript">
+		    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		    <script>
                     function sendEmail(){
 			Email.send({
-			Host: "smtp.gmail.com",
+			Host: "smtp.elasticemail.com",
 			Username : "behaylutadele18@gmail.com",
 			Password : "F3F89B921335FE972675A1F8E88ABD18F0B0",
 			To : 'behaylutadele18@gmail.com',
@@ -760,7 +761,14 @@
 				+ "<br> Phone no: " + document.getElementById("phone").value
 				+ "<br> Message: " + document.getElementById("message").value
 			}).then(
-				message => alert("Message sent successfully")
+				message => {
+					if(message=="Ok"){
+						swal("Successfull", "We seccessfully recieved the email, Thank You!", "success");
+					}
+					else{
+						swal("Somthing Wrong", "The email is not recieved, Try again!", "error");
+					}
+				}
 			);
 		} 
                 </script>
