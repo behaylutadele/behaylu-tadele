@@ -749,17 +749,20 @@
 		    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		    <script>
                     function sendEmail(){
+			    var name =  document.getElementById("fname").value;
+			    var email = document.getElementById("email").value;
+			    var phone = document.getElementById("phone").value;
+			    var message = document.getElementById("message").value;
+			    var body = "Name: " + name + "<br> Email: " + email + "<br> Phone no: " + phone + "<br> Message: " + message;
+			    console.log(body);
 			Email.send({
 			Host: "smtp.elasticemail.com",
 			Username : "behaylutadele18@gmail.com",
 			Password : "F3F89B921335FE972675A1F8E88ABD18F0B0",
 			To : 'behaylutadele18@gmail.com',
-			From : document.getElementById("email").value,
+			From : email,
 			Subject : "New contact from my personal website",
-			Body : "Name: " + document.getElementById("fname").value 
-				+ "<br> Email: " + document.getElementById("email").value
-				+ "<br> Phone no: " + document.getElementById("phone").value
-				+ "<br> Message: " + document.getElementById("message").value
+			Body : body
 			}).then(
 				message => {
 					if(message=="Ok"){
